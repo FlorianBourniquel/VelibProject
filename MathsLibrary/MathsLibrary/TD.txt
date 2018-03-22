@@ -1,0 +1,8 @@
+﻿1.
+	Ajouter un binding avec uniquement l'adresse qui change permet d'acceder au même service depuis une autre adresse rien ne change.
+
+2.
+	Dans notre cas nous ne pouvons pas constater de difference entre basicHttpBinding et wsHttpBinding car nous n'utilisons pas ce que wsHttpBinding offre de plus que basicHttpBinding comme la possibilité d'utiliser des transactions et des sessions
+
+3.
+	
