@@ -3,7 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
 VisualStudioVersion = 15.0.27130.2036
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WcfServiceLibraryVelib", "WcfServiceLibraryVelib\WcfServiceLibraryVelib.csproj", "{0E7CA966-DA90-4219-BFFD-0A79D55A0618}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ClientConsole", "ClientConsole\ClientConsole.csproj", "{D1DC6E7D-F5F7-4862-9F39-34DF7D5C754B}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -11,15 +11,15 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{0E7CA966-DA90-4219-BFFD-0A79D55A0618}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{0E7CA966-DA90-4219-BFFD-0A79D55A0618}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{0E7CA966-DA90-4219-BFFD-0A79D55A0618}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{0E7CA966-DA90-4219-BFFD-0A79D55A0618}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D1DC6E7D-F5F7-4862-9F39-34DF7D5C754B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D1DC6E7D-F5F7-4862-9F39-34DF7D5C754B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D1DC6E7D-F5F7-4862-9F39-34DF7D5C754B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D1DC6E7D-F5F7-4862-9F39-34DF7D5C754B}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
-		SolutionGuid = {BE5501EF-26F8-41A5-8F9F-E30C9ADBFD25}
+		SolutionGuid = {BF76C277-828C-44D6-A5CF-7B2C5671063C}
 	EndGlobalSection
 EndGlobal

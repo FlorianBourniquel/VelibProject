@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:wsap="http://schemas.xmlsoap.org/ws/2004/08/addressing/policy" xmlns:wsa10="http://www.w3.org/2005/08/addressing" xmlns:tns="http://tempuri.org/" xmlns:msc="http://schemas.microsoft.com/ws/2005/12/wsdl/contract" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:wsx="http://schemas.xmlsoap.org/ws/2004/09/mex" xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy" xmlns:wsam="http://www.w3.org/2007/05/addressing/metadata" xmlns:wsa="http://schemas.xmlsoap.org/ws/2004/08/addressing" xmlns:wsaw="http://www.w3.org/2006/05/addressing/wsdl" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd" xmlns:xsd="http://www.w3.org/2001/XMLSchema" name="Velib" targetNamespace="http://tempuri.org/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <xsd:schema targetNamespace="http://tempuri.org/Imports">
+      <xsd:import schemaLocation="http://localhost:8733/Design_Time_Addresses/WcfServiceLibraryVelib/Service1/?xsd=xsd0" namespace="http://tempuri.org/" />
+      <xsd:import schemaLocation="http://localhost:8733/Design_Time_Addresses/WcfServiceLibraryVelib/Service1/?xsd=xsd1" namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
+      <xsd:import schemaLocation="http://localhost:8733/Design_Time_Addresses/WcfServiceLibraryVelib/Service1/?xsd=xsd2" namespace="http://schemas.datacontract.org/2004/07/WcfServiceLibraryVelib" />
+      <xsd:import schemaLocation="http://localhost:8733/Design_Time_Addresses/WcfServiceLibraryVelib/Service1/?xsd=xsd3" namespace="http://schemas.microsoft.com/2003/10/Serialization/Arrays" />
+    </xsd:schema>
+  </wsdl:types>
+  <wsdl:message name="IVelib_GetVille_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetVille" />
+  </wsdl:message>
+  <wsdl:message name="IVelib_GetVille_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetVilleResponse" />
+  </wsdl:message>
+  <wsdl:message name="IVelib_GetNomStationParVille_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetNomStationParVille" />
+  </wsdl:message>
+  <wsdl:message name="IVelib_GetNomStationParVille_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetNomStationParVilleResponse" />
+  </wsdl:message>
+  <wsdl:message name="IVelib_GetInformationStation_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetInformationStation" />
+  </wsdl:message>
+  <wsdl:message name="IVelib_GetInformationStation_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetInformationStationResponse" />
+  </wsdl:message>
+  <wsdl:portType name="IVelib">
+    <wsdl:operation name="GetVille">
+      <wsdl:input wsaw:Action="http://tempuri.org/IVelib/GetVille" message="tns:IVelib_GetVille_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IVelib/GetVilleResponse" message="tns:IVelib_GetVille_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetNomStationParVille">
+      <wsdl:input wsaw:Action="http://tempuri.org/IVelib/GetNomStationParVille" message="tns:IVelib_GetNomStationParVille_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IVelib/GetNomStationParVilleResponse" message="tns:IVelib_GetNomStationParVille_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetInformationStation">
+      <wsdl:input wsaw:Action="http://tempuri.org/IVelib/GetInformationStation" message="tns:IVelib_GetInformationStation_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IVelib/GetInformationStationResponse" message="tns:IVelib_GetInformationStation_OutputMessage" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="BasicHttpBinding_IVelib" type="tns:IVelib">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="GetVille">
+      <soap:operation soapAction="http://tempuri.org/IVelib/GetVille" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetNomStationParVille">
+      <soap:operation soapAction="http://tempuri.org/IVelib/GetNomStationParVille" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetInformationStation">
+      <soap:operation soapAction="http://tempuri.org/IVelib/GetInformationStation" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="Velib">
+    <wsdl:port name="BasicHttpBinding_IVelib" binding="tns:BasicHttpBinding_IVelib">
+      <soap:address location="http://localhost:8733/Design_Time_Addresses/WcfServiceLibraryVelib/Service1/" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>
