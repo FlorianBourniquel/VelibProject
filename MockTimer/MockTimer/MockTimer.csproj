@@ -4,10 +4,10 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{D1DC6E7D-F5F7-4862-9F39-34DF7D5C754B}</ProjectGuid>
+    <ProjectGuid>{8644028D-0741-431B-B46E-5996879D7BE1}</ProjectGuid>
     <OutputType>Exe</OutputType>
-    <RootNamespace>ClientConsole</RootNamespace>
-    <AssemblyName>ClientConsole</AssemblyName>
+    <RootNamespace>MockTimer</RootNamespace>
+    <AssemblyName>MockTimer</AssemblyName>
     <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
@@ -44,79 +44,35 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Connected Services\EventStation\Reference.cs">
+    <Compile Include="Connected Services\TimerService\Reference.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>Reference.svcmap</DependentUpon>
     </Compile>
-    <Compile Include="Connected Services\ServiceReferenceVelib\Reference.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>Reference.svcmap</DependentUpon>
-    </Compile>
-    <Compile Include="EventStationCallbackSink.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
-    <None Include="Connected Services\EventStation\service.wsdl" />
-    <None Include="Connected Services\EventStation\service.xsd">
+    <None Include="Connected Services\TimerService\service.wsdl" />
+    <None Include="Connected Services\TimerService\service.xsd">
       <SubType>Designer</SubType>
     </None>
-    <None Include="Connected Services\EventStation\service1.xsd">
-      <SubType>Designer</SubType>
-    </None>
-    <None Include="Connected Services\EventStation\WcfServiceLibraryVelib.xsd">
-      <SubType>Designer</SubType>
-    </None>
-    <None Include="Connected Services\ServiceReferenceVelib\ClientConsole.ServiceReferenceVelib.Station.datasource">
-      <DependentUpon>Reference.svcmap</DependentUpon>
-    </None>
-    <None Include="Connected Services\ServiceReferenceVelib\ClientConsole.ServiceReferenceVelib.Ville.datasource">
-      <DependentUpon>Reference.svcmap</DependentUpon>
-    </None>
-    <None Include="Connected Services\ServiceReferenceVelib\item.xsd">
-      <SubType>Designer</SubType>
-    </None>
-    <None Include="Connected Services\ServiceReferenceVelib\item1.xsd">
-      <SubType>Designer</SubType>
-    </None>
-    <None Include="Connected Services\ServiceReferenceVelib\item2.xsd">
-      <SubType>Designer</SubType>
-    </None>
-    <None Include="Connected Services\ServiceReferenceVelib\item3.xsd">
-      <SubType>Designer</SubType>
-    </None>
-    <None Include="Connected Services\ServiceReferenceVelib\Velib.wsdl" />
   </ItemGroup>
   <ItemGroup>
     <WCFMetadata Include="Connected Services\" />
   </ItemGroup>
   <ItemGroup>
-    <WCFMetadataStorage Include="Connected Services\EventStation\" />
-    <WCFMetadataStorage Include="Connected Services\ServiceReferenceVelib\" />
+    <WCFMetadataStorage Include="Connected Services\TimerService\" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Connected Services\ServiceReferenceVelib\configuration91.svcinfo" />
+    <None Include="Connected Services\TimerService\configuration91.svcinfo" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Connected Services\ServiceReferenceVelib\configuration.svcinfo" />
+    <None Include="Connected Services\TimerService\configuration.svcinfo" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Connected Services\ServiceReferenceVelib\Reference.svcmap">
-      <Generator>WCF Proxy Generator</Generator>
-      <LastGenOutput>Reference.cs</LastGenOutput>
-    </None>
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Connected Services\EventStation\configuration91.svcinfo" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Connected Services\EventStation\configuration.svcinfo" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Connected Services\EventStation\Reference.svcmap">
+    <None Include="Connected Services\TimerService\Reference.svcmap">
       <Generator>WCF Proxy Generator</Generator>
       <LastGenOutput>Reference.cs</LastGenOutput>
     </None>

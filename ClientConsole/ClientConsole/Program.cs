@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.ServiceModel;
 using System.Text;
 using System.Threading.Tasks;
 using ClientConsole.ServiceReferenceVelib;
@@ -12,6 +13,9 @@ namespace ClientConsole
         static void Main(string[] args)
         {
             IVelib referenceVelib = new VelibClient();
+            EventStationCallbackSink objsink = new EventStationCallbackSink();
+            InstanceContext iCntxt = new InstanceContext(objsink);
+            EventStation.SubEventClient objClient = new EventStation.SubEventClient(iCntxt);
             Console.WriteLine("Tapez help pour avoir la liste des commande");
             string fullCommande = "";
             while (true)
@@ -30,6 +34,8 @@ namespace ClientConsole
                             Console.WriteLine("ville {deltaSeconde}: Obtenir la liste des villes");
                             Console.WriteLine("NomStationParVille {NomVille} {deltaSeconde}: Obtenir la liste des noms des stations d'une ville");
                             Console.WriteLine("InfoStation {NomVille} {NomStation} {deltaSeconde}: Obtenir le nombre de velos disponible dans la station");
+                            Console.WriteLine("InfoStationSub {NomVille} {NomStation} {deltaSeconde}: Obtenir le nombre de velos disponible dans la station tous les X temps");
+                            Console.WriteLine("InfoStationUnSub {NomVille} {NomStation} {deltaSeconde}: Se desinscrire de cet evenement");
                             Console.WriteLine("quitter : quitter l'application");
                             break;
                         case "quitter":
@@ -127,6 +133,12 @@ namespace ClientConsole
                                 break;
                             }
                             Console.WriteLine("Nombre de velos disponibles dans la station : " + station.available_bikes);
+                            break;
+                        case "InfoStationSub":
+                            objClient.SubscribeStationEvent(commandeSplit[1], ReformatParam(commandeSplit), deltaSeconde);
+                            break;
+                        case "InfoStationUnSub":
+                            objClient.UnsubscribeStationEvent(commandeSplit[1], ReformatParam(commandeSplit), deltaSeconde);
                             break;
                         default:
                             Console.WriteLine("Commande inconue tapez help pour la liste des commandes disponibles");
