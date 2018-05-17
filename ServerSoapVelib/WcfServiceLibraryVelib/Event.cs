@@ -10,7 +10,7 @@ namespace WcfServiceLibraryVelib
     class Event : ISubEvent
     {
         private static Velib velib = new Velib();
-        private static Dictionary<Tuple<string,string>,List<Action<Station>>> sub = new Dictionary<Tuple<string, string>, List<Action<Station>>>();
+        private static Dictionary<Tuple<string,string>,Action<Station>> sub = new Dictionary<Tuple<string, string>, Action<Station>>();
 
         public void SubscribeStationEvent(string ville,string stationName, int deltaSeconde)
         {
@@ -18,20 +18,18 @@ namespace WcfServiceLibraryVelib
             Action<Station> call = delegate { };
             IEvent subEven = OperationContext.Current.GetCallbackChannel<IEvent>();
             call += subEven.StationUpdate;
-            List <Action < Station >> list = null;
+            Action < Station > action = null;
             if (sub.ContainsKey(new Tuple<string, string>(ville,stationName)))
             {
-                if (sub.TryGetValue(new Tuple<string, string>(ville,stationName),out list))
+                if (sub.TryGetValue(new Tuple<string, string>(ville,stationName),out action))
                 {
-                    list.Add(call);
-                    sub[new Tuple<string, string>(ville, stationName)] =list;
+                    action += subEven.StationUpdate;
+                    sub[new Tuple<string, string>(ville, stationName)] = action;
                 }
             }
             else
             {
-                list = new List<Action<Station>>();
-                list.Add(call);
-                sub.Add(new Tuple<string, string>(ville, stationName),list);
+                sub.Add(new Tuple<string, string>(ville, stationName),call);
             }
             
         }
@@ -39,21 +37,11 @@ namespace WcfServiceLibraryVelib
 
         public void TriggerUpdate()
         {
-           
-            List<Action<Station>> list = null;
-
-  
-            foreach (KeyValuePair<Tuple<string, string>, List<Action<Station>>> entry in sub)
+           foreach (KeyValuePair<Tuple<string, string>, Action<Station>> entry in sub)
             {
                 Station station = velib.GetInformationStation(entry.Key.Item1, entry.Key.Item2, 0);
-                foreach (Action<Station> action in entry.Value)
-                {
-                    action(station);
-                }
+                entry.Value(station);
             }
-
-
-
         }
     }
     
