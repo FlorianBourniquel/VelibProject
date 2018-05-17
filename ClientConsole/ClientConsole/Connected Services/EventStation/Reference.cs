@@ -320,12 +320,6 @@ namespace ClientConsole.EventStation {
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ISubEvent/SubscribeStationEvent", ReplyAction="http://tempuri.org/ISubEvent/SubscribeStationEventResponse")]
         System.Threading.Tasks.Task SubscribeStationEventAsync(string ville, string stationName, int deltaSeconde);
-        
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ISubEvent/UnsubscribeStationEvent", ReplyAction="http://tempuri.org/ISubEvent/UnsubscribeStationEventResponse")]
-        void UnsubscribeStationEvent(string ville, string stationName, int deltaSeconde);
-        
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ISubEvent/UnsubscribeStationEvent", ReplyAction="http://tempuri.org/ISubEvent/UnsubscribeStationEventResponse")]
-        System.Threading.Tasks.Task UnsubscribeStationEventAsync(string ville, string stationName, int deltaSeconde);
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
@@ -369,14 +363,6 @@ namespace ClientConsole.EventStation {
         
         public System.Threading.Tasks.Task SubscribeStationEventAsync(string ville, string stationName, int deltaSeconde) {
             return base.Channel.SubscribeStationEventAsync(ville, stationName, deltaSeconde);
-        }
-        
-        public void UnsubscribeStationEvent(string ville, string stationName, int deltaSeconde) {
-            base.Channel.UnsubscribeStationEvent(ville, stationName, deltaSeconde);
-        }
-        
-        public System.Threading.Tasks.Task UnsubscribeStationEventAsync(string ville, string stationName, int deltaSeconde) {
-            return base.Channel.UnsubscribeStationEventAsync(ville, stationName, deltaSeconde);
         }
     }
 }

@@ -51,7 +51,6 @@
   <ItemGroup>
     <Compile Include="Cache.cs" />
     <Compile Include="Event.cs" />
-    <Compile Include="EventArgs.cs" />
     <Compile Include="IEvent.cs" />
     <Compile Include="ITimer.cs" />
     <Compile Include="ISubEvent.cs" />

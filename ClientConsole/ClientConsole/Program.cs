@@ -35,7 +35,6 @@ namespace ClientConsole
                             Console.WriteLine("NomStationParVille {NomVille} {deltaSeconde}: Obtenir la liste des noms des stations d'une ville");
                             Console.WriteLine("InfoStation {NomVille} {NomStation} {deltaSeconde}: Obtenir le nombre de velos disponible dans la station");
                             Console.WriteLine("InfoStationSub {NomVille} {NomStation} {deltaSeconde}: Obtenir le nombre de velos disponible dans la station tous les X temps");
-                            Console.WriteLine("InfoStationUnSub {NomVille} {NomStation} {deltaSeconde}: Se desinscrire de cet evenement");
                             Console.WriteLine("quitter : quitter l'application");
                             break;
                         case "quitter":
@@ -136,9 +135,6 @@ namespace ClientConsole
                             break;
                         case "InfoStationSub":
                             objClient.SubscribeStationEvent(commandeSplit[1], ReformatParam(commandeSplit), deltaSeconde);
-                            break;
-                        case "InfoStationUnSub":
-                            objClient.UnsubscribeStationEvent(commandeSplit[1], ReformatParam(commandeSplit), deltaSeconde);
                             break;
                         default:
                             Console.WriteLine("Commande inconue tapez help pour la liste des commandes disponibles");

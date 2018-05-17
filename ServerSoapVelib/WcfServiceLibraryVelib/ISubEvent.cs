@@ -13,9 +13,6 @@ namespace WcfServiceLibraryVelib
         [OperationContract]
         void SubscribeStationEvent(string ville,string stationName, int deltaSeconde);
 
-        [OperationContract]
-        void UnsubscribeStationEvent(string ville, string stationName, int deltaSeconde);
-
         void TriggerUpdate();
     }
 }

@@ -9,46 +9,52 @@ namespace WcfServiceLibraryVelib
 {
     class Event : ISubEvent
     {
-        private static readonly List<EventArgs> CallbackChannels = new List<EventArgs>();
         private static Velib velib = new Velib();
+        private static Dictionary<Tuple<string,string>,List<Action<Station>>> sub = new Dictionary<Tuple<string, string>, List<Action<Station>>>();
 
         public void SubscribeStationEvent(string ville,string stationName, int deltaSeconde)
         {
-            EventArgs subscriber = new EventArgs(stationName,ville,deltaSeconde,OperationContext.Current.GetCallbackChannel<IEvent>());
-            if (!CallbackChannels.Contains(subscriber))
+           
+            Action<Station> call = delegate { };
+            IEvent subEven = OperationContext.Current.GetCallbackChannel<IEvent>();
+            call += subEven.StationUpdate;
+            List <Action < Station >> list = null;
+            if (sub.ContainsKey(new Tuple<string, string>(ville,stationName)))
             {
-                CallbackChannels.Add(subscriber);
+                if (sub.TryGetValue(new Tuple<string, string>(ville,stationName),out list))
+                {
+                    list.Add(call);
+                    sub[new Tuple<string, string>(ville, stationName)] =list;
+                }
             }
+            else
+            {
+                list = new List<Action<Station>>();
+                list.Add(call);
+                sub.Add(new Tuple<string, string>(ville, stationName),list);
+            }
+            
         }
 
-        public void UnsubscribeStationEvent(string ville, string stationName, int deltaSeconde)
-        {
-            EventArgs subscriber = new EventArgs(stationName, ville, deltaSeconde, OperationContext.Current.GetCallbackChannel<IEvent>());
-            if (CallbackChannels.Contains(subscriber))
-            {
-                CallbackChannels.Remove(subscriber);
-            }
-        }
 
         public void TriggerUpdate()
         {
-            foreach (var eventArg in CallbackChannels)
-            {
-                Station station = velib.GetInformationStation(eventArg.ville, eventArg.stationName, eventArg.deltaSeconde);
-                try
-                {
-                    eventArg.CallbEvent.StationUpdate(station);
-                }
-                catch (TimeoutException e)
-                {
-                    
-                }
-                catch (Exception e)
-                {
-                    Console.WriteLine(e);
-                }
+           
+            List<Action<Station>> list = null;
 
+  
+            foreach (KeyValuePair<Tuple<string, string>, List<Action<Station>>> entry in sub)
+            {
+                Station station = velib.GetInformationStation(entry.Key.Item1, entry.Key.Item2, 0);
+                foreach (Action<Station> action in entry.Value)
+                {
+                    action(station);
+                }
             }
+
+
+
         }
     }
+    
 }

@@ -15,20 +15,6 @@
       <xs:sequence />
     </xs:complexType>
   </xs:element>
-  <xs:element name="UnsubscribeStationEvent">
-    <xs:complexType>
-      <xs:sequence>
-        <xs:element minOccurs="0" name="ville" nillable="true" type="xs:string" />
-        <xs:element minOccurs="0" name="stationName" nillable="true" type="xs:string" />
-        <xs:element minOccurs="0" name="deltaSeconde" type="xs:int" />
-      </xs:sequence>
-    </xs:complexType>
-  </xs:element>
-  <xs:element name="UnsubscribeStationEventResponse">
-    <xs:complexType>
-      <xs:sequence />
-    </xs:complexType>
-  </xs:element>
   <xs:element name="StationUpdate">
     <xs:complexType>
       <xs:sequence>

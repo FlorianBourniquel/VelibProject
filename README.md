@@ -1,4 +1,4 @@
-# Readme
+﻿# Readme
 ## REST and SOAP WS Lab
 ### ServerSoapVelib
 #### Methodes exposées
@@ -11,7 +11,6 @@ Le serveur dispose d'un système de cache qui fonctionne de la manière suivante
 #### Eventing
 ##### Methodes exposées
     void SubscribeStationEvent(string ville,string stationName, int deltaSeconde);
-    void UnsubscribeStationEvent(string ville, string stationName, int deltaSeconde);
     void TriggerUpdate();
 Le serveur dispose d'un système d'évènement qui va automatiquement envoyer les informations des stations auxquelles les clients sont abonnés. Cet envoi est déclenché par l'appel de la méthode TriggerUpdate() (voir partie MockTimer).
 ### MockTimer
